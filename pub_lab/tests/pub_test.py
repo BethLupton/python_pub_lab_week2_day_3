@@ -27,9 +27,11 @@ class TestPub(unittest.TestCase):
     def test_drink_has_name(self):
         self.assertEqual("Beer", self.pub.drinks[0]["name"])
 
-    # def test_sell_drink_to_customer(self):
-    #     customer = Customer("Bob",567)
-    #     self.pub.can_sell_drink_to_customer({"name":"Beer", "price": 3.25})
-    #     self.assertEqual(customer.wallet, 563.75)
-        
+    def test_sell_drink_to_customer(self):
+        customer1 = Customer("Bob",567)
+        self.pub.can_sell_drink_to_customer({"name":"Beer", "price": 3.25},customer1)
+        self.assertEqual(customer1.wallet, 563.75)
+        self.assertEqual(self.pub.increase_till)
+        self.assertEqual(self.pub.stock_level(),3)
+
 
